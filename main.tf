@@ -27,7 +27,7 @@ locals {
   topics                 = concat(local.standard_topics, var.extra_topics)
   template               = var.template == null ? [] : [var.template]
   issue_labels_create    = var.issue_labels_create == null ? lookup(var.defaults, "issue_labels_create", local.issue_labels_create_computed) : var.issue_labels_create
-  branch_protections_v3  = var.branch_protections_v3 == null ? var.branch_protections : var.branch_protections_v3
+  branch_protections_v3  = var.branch_protections_v3 == null ? lookup(var.defaults, "branch_protections_v3", []) : var.branch_protections_v3
 
   issue_labels_create_computed = local.has_issues || length(var.issue_labels) > 0
 
@@ -484,7 +484,7 @@ resource "github_repository_webhook" "repository_webhook" {
 # ---------------------------------------------------------------------------------------------------------------------
 
 locals {
-  autolink_references = { for i in var.autolink_references : lookup(i, "id", lower(i.key_prefix)) => merge({
+  autolink_references = { for i in var.defaults["autolink_references"] : lookup(i, "id", lower(i.key_prefix)) => merge({
     target_url_template = null
   }, i) }
 }
