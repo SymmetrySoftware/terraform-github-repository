@@ -37,7 +37,7 @@ locals {
 
   issue_labels_merge_with_github_labels = local.gh_labels
   # Per default, GitHub activates vulnerability  alerts for public repositories and disables it for private repositories
-  vulnerability_alerts = var.vulnerability_alerts != null ? var.vulnerability_alerts : local.private ? false : true
+  vulnerability_alerts = var.vulnerability_alerts == null ? lookup(var.defaults, "vulnerability_alerts", true) : var.vulnerability_alerts
 }
 
 locals {
