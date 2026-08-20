@@ -21,7 +21,7 @@ header {
   }
 
   badge "tf-gh" {
-    image = "https://img.shields.io/badge/GH-4.10+-F8991D.svg?logo=terraform"
+    image = "https://img.shields.io/badge/GH-6.0+-F8991D.svg?logo=terraform"
     url   = "https://github.com/terraform-providers/terraform-provider-github/releases"
     text  = "Github Provider Version"
   }
@@ -39,11 +39,11 @@ section {
   content = <<-END
     A [Terraform] module for creating a public or private repository on [Github].
 
-    **_This module supports Terraform v1.x and is compatible with the Official Terraform GitHub Provider v4.10 and above from `integrations/github`._**
+    **_This module supports Terraform v1.x and is compatible with the Official Terraform GitHub Provider v6.0 and above from `integrations/github`._**
 
     **Attention: This module is incompatible with the Hashicorp GitHub Provider! The latest version of this module supporting `hashicorp/github` provider is `~> 0.10.0`**
 
-    _Security related notice: Versions 4.7.0, 4.8.0, 4.9.0 and 4.9.1 of the Terraform Github Provider are deny-listed in version constraints as a regression introduced in 4.7.0 and fixed in 4.9.2 creates public repositories from templates even if visibility is set to private._
+    _Security related notice: Versions 4.7.0, 4.8.0, 4.9.0 and 4.9.1 of the Terraform Github Provider are deny-listed in version constraints as a regression introduced in 4.7.0 and fixed in 4.9.2 creates public repositories from templates even if visibility is set to private. This notice applies only to older v4.x versions and is not relevant for v6.0+._
   END
 
   section {
@@ -105,7 +105,7 @@ section {
         required_providers {
           github = {
             source  = "integrations/github"
-            version = "~> 4.0"
+            version = "~> 6.0"
           }
         }
       }
@@ -1348,7 +1348,7 @@ references {
     value = "https://img.shields.io/badge/slack-@mineiros--community-f32752.svg?logo=slack"
   }
   ref "badge-tf-gh" {
-    value = "https://img.shields.io/badge/GH-4.10+-F8991D.svg?logo=terraform"
+    value = "https://img.shields.io/badge/GH-6.0+-F8991D.svg?logo=terraform"
   }
   ref "releases-github-provider" {
     value = "https://github.com/terraform-providers/terraform-provider-github/releases"
